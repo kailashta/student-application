@@ -1,0 +1,108 @@
+package com.company;
+
+import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    static  Scanner sc = new Scanner(System.in);
+    static   int id;
+    static   String name;
+    static   String gender;
+    static   byte age;
+    static   String course;
+    static   String department;
+    static   long phoneNumber;
+    static   String emailId;
+    static ArrayList<InputStudentDetails> studentInfo = new ArrayList<>();
+    public static void printAllStudentDetails() {
+        System.out.println("ID\t\tName\t\t\tGender\tAge\tCourse\tDepartment\t\tPhone Number\t\t\tEmail ID");
+        for (int i = 0; i < studentInfo.size(); i++) {
+            System.out.print(studentInfo.get(i).getId()+"\t");
+            System.out.print(studentInfo.get(i).getName()+"\t\t");
+            System.out.print(studentInfo.get(i).getGender()+"\t");
+            System.out.print(studentInfo.get(i).getAge()+"");
+            System.out.print(studentInfo.get(i).getCourse()+"\t\t");
+            System.out.print(studentInfo.get(i).getDepartment()+"\t ");
+            System.out.print(studentInfo.get(i).getPhoneNumber()+"\t");
+            System.out.print(studentInfo.get(i).getEmailId());
+            System.out.println();
+
+        }
+    }
+    public static void main(String[] args) {
+        // write your code here
+
+
+        //old source code
+
+       /* System.out.println("Enter Details For Student 1");
+        studentDetails();
+        InputStudentDetails student1 = new InputStudentDetails(id , name , gender ,age, course , department , phoneNumber,emailId);
+        studentInfo.add(student1);
+
+        System.out.println("Enter Details For Student 2");
+        studentDetails();
+        InputStudentDetails student2 = new InputStudentDetails(id , name , gender ,age, course , department , phoneNumber,emailId);
+        studentInfo.add(student2);
+
+      /*  System.out.println("Enter Details For Student 3");
+        studentDetails();
+        InputStudentDetails student3 = new InputStudentDetails(id , name , gender ,age, course , department , phoneNumber,emailId);
+        studentInfo.add(student3);
+
+        System.out.println("Enter Details For Student 4");
+        studentDetails();
+        InputStudentDetails student4 = new InputStudentDetails(id , name , gender ,age, course , department , phoneNumber,emailId);
+        studentInfo.add(student4);
+
+        System.out.println("Enter Details For Student 5");
+        studentDetails();
+        InputStudentDetails student5 = new InputStudentDetails(id , name , gender ,age, course , department , phoneNumber,emailId);
+        studentInfo.add(student5); */
+
+       /* for (int i=0;i<studentInfo.size();i++){
+            System.out.println(studentInfo.get(i).getId());
+            System.out.println(studentInfo.get(i).getName());
+            System.out.println(studentInfo.get(i).getGender());
+            System.out.println(studentInfo.get(i).getAge());
+            System.out.println(studentInfo.get(i).getCourse());
+            System.out.println(studentInfo.get(i).getDepartment());
+            System.out.println(studentInfo.get(i).getPhoneNumber());
+            System.out.println(studentInfo.get(i).getEmailId());
+        } */
+
+        //after changed code
+        for(int i=0;i<2;i++){
+            studentDetails();
+            studentInfo.add(new InputStudentDetails<>(id,name,gender,age,course,department,phoneNumber,emailId));
+        }
+        for(int i=0;i<studentInfo.size();i++){
+            printAllStudentDetails();
+        }
+
+
+    }
+    private static void studentDetails(){
+        System.out.println("Enter id");
+        id = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Enter Name");
+        name = sc.nextLine();
+        System.out.println("Enter Gender");
+        gender = sc.nextLine();
+        System.out.println("Enter Age");
+        age = sc.nextByte();
+        sc.nextLine();
+        System.out.println("Enter Course");
+        course = sc.nextLine();
+        System.out.println("Enter Department");
+        department = sc.nextLine();
+        System.out.println("Enter Phone Number");
+        phoneNumber = sc.nextLong();
+        sc.nextLine();
+        System.out.println("Enter Email ID");
+        emailId = sc.nextLine();
+    }
+
+}
